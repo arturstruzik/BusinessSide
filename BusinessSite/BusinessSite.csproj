@@ -171,6 +171,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\img\FN_LOGO_mini.png" />
+    <Content Include="Assets\img\FN_LOGO_short.png" />
+    <Content Include="Assets\img\input_background.png" />
+    <Content Include="Assets\img\michal.jpg" />
+    <Content Include="Assets\img\zaloguj.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -190,6 +195,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

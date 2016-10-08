@@ -757,8 +757,7 @@ pre code {
 }
 
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  position:relative;
   margin-right: auto;
   margin-left: auto;
 }
@@ -4193,9 +4192,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 49px;
 }
 
 .navbar-brand:hover,
@@ -4240,6 +4238,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-nav {
   margin: 7.5px -15px;
+  padding-left:10px;
 }
 
 .navbar-nav > li > a {
@@ -4436,7 +4435,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #cccccc;
+  background-color: #fff;
 }
 
 .navbar-default .navbar-collapse,

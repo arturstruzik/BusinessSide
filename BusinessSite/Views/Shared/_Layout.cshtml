@@ -3,13 +3,43 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>FutureNet Michał Wosztyl</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/dd8b72afbc.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="section1" class="site-top">
+        <div class="container">
+            <div class="about-author-image">
+                <div class="image-shadow"></div>
+                <img src="/Assets/img/michal.jpg" />
+            </div>
+            <div class="about-author">
+                <div class="about-author-name">
+                    MICHAŁ WOSZTYL
+                </div>
+                <div class="about-author-tags">
+                    <div id="about-author-tags">
+                        #coach #przedsiębiorca #szczęśliwy#mąż
+                    </div>
+                    <i class="fa fa-envelope" aria-hidden="true"></i> kontakt@futureNet.net<br />
+                    <i class="fa fa-phone-square" aria-hidden="true"></i> +48 666 487 754
+                </div>
+            </div>
+            <div class="logo">
+                <div class="logo-social-media">
+                    <i class="fa fa-youtube fa-2x" aria-hidden="true" href="#"></i>
+                    <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="logo-image">
+                    <img src="/Assets/img/FN_LOGO_mini.png" id="logo-image" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,28 +47,51 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="navbar-brand">
+                    <img src="/Assets/img/FN_LOGO_short.png" id="navbar-brand-image" />
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Strona główna", "Index", "Home", null, null, "section-top", new { categoryid = "blah" }, null)</li>
+                    <li>@Html.ActionLink("Oferta", "Index", "Home", null, null, "section-oferta", new { categoryid = "blah" }, null)</li>
+                    <li>@Html.ActionLink("Kontakt", "Index", "Home", null, null, "section-kontakt", new { categoryid = "blah" }, null)</li>
+                    <li>@Html.ActionLink("Dołącz do nas", "Index", "Home", null, null, "section-dolacz", new { categoryid = "blah" }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
+    <div class="container">
+        <div class="body-content">
+            @RenderBody()
+        </div>
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+
+    <footer class="row">
+        <div class="container">
+            <div class="about-author">
+                <div id="aurhor-content">
+                    <img id="footer-author-img-1" src="~/Assets/img/michal.jpg" />
+                    <div class="about-author-name">
+                        ANDRZEJ NIWICKI
+                    </div>
+                    <div class="about-author-tags">
+                        <i class="fa fa-facebook" aria-hidden="true"></i> Porozmawiajmy na priv<br />
+                        <i class="fa fa-skype" aria-hidden="true"></i> michael<br />
+                        <i class="fa fa-envelope" aria-hidden="true"></i> kontakt@futureNet.net<br />
+                        <i class="fa fa-phone-square" aria-hidden="true"></i> +48 666 487 754
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/site.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
