@@ -1,0 +1,13 @@
+﻿@using BusinessSite.Models
+@model ContactMessage
+
+@using (Html.BeginForm("_PartialPageContact", "ContactMessage", FormMethod.Post))
+{
+    <div id="contact-box">
+        @Html.TextBoxFor(m => m.Name, new { @placeholder = "Imię", @class = "contact contact-name"})
+        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @class = "contact contact-email" })
+        @Html.TextBoxFor(m => m.Phone, new { @placeholder = "Numer Telefonu", @class = "contact contact-phone" })
+        @Html.TextAreaFor(m => m.Content, new { @placeholder = "Wiadomość", @class = "contact contact-comment", rows = "", cols = "" })
+        <input type="submit" value="Wyślij wiadomość" />
+    </div>
+}
