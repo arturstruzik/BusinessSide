@@ -12,7 +12,10 @@ namespace BusinessSite.Controllers
         [HttpPost]
         public ActionResult _PartialPageContact(ContactMessage model)
         {
-            return JavaScript("alert('Some message')");
+            TempData["IsSuccess"] = "true";
+            TempData["ViewBag.Message"] = "Message send successfully";
+
+            return RedirectToAction("Index", "Home");
         }
 
 

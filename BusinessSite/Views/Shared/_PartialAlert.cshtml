@@ -1,0 +1,17 @@
+﻿<div>
+    @if (TempData["IsSuccess"] == "true")
+    {
+        <div class="top-bar success-bar">
+            @TempData["ViewBag.Message"]
+        </div>
+    }
+    else if (TempData["IsSuccess"] == "false")
+    {
+        <div class="top-bar error-bar">
+            @TempData["ViewBag.Message"]
+        </div>
+    }
+</div>
+
+
+

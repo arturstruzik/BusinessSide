@@ -18,8 +18,6 @@ a {
     display: inline-block;
     line-height: 80px;
     height: 80px;
-    position: absolute;
-    top: 0;
     width: 100%;
     background-color: black;
     border-bottom: 0.4vh solid #a0faff;
@@ -122,6 +120,22 @@ a {
     .fixed-top img {
         height: 35px;
     }
+
+.top-bar{
+    line-height: 30px;
+}
+
+.error-bar{
+    background-color:red;
+    color: white;
+    text-align:center;
+}
+
+.success-bar{
+    background-color:greenyellow;
+    color: white;
+    text-align:center;
+}
 
 .navbar-toggle .icon-bar {
     background-color: #fff;
