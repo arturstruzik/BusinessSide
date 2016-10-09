@@ -25,12 +25,18 @@ else
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <li>
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "login-input", @placeholder = "Urzytkownik" })
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "login-input", @placeholder = "Użytkownik" })
                     @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    <div id="password-btn">
+                        @Html.ActionLink("Zapomniałeś hasła?", "ForgotPassword", "Account", null, new { @class = "password-btn" })
+                    </div>
                 </li>
                 <li>
                     @Html.PasswordFor(m => m.Password, new { @class = "login-input", @placeholder = "Hasło" })
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    <div id="register-btn">
+                        @Html.ActionLink("Zarejestruj", "Register", "Account", null, new { @class = "register-btn" })
+                    </div>
                 </li>
                 <li>
                     <input class="login-btn" type="submit" value="Log in" />
