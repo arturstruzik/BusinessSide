@@ -11,22 +11,13 @@ namespace BusinessSite.Controllers
         [HttpPost]
         public ActionResult _PartialPageContact(ContactMessage model)
         {
-            var messageContent = "NAME: " + model.Name + " PHONE: " + model.Phone + " QUESTION: " + model.Content;
-
-            MailMessage mail = new MailMessage("info@arturstruzik.pl",
-                "info@arturstruzik.pl",
-                model.Email + " ask you a question.",
-                messageContent);
-
-            SmtpClient smtpClient = new SmtpClient("arturstruzik.nazwa.pl");
-            NetworkCredential networkCred = new NetworkCredential("info@arturstruzik.pl", "************");
-            smtpClient.UseDefaultCredentials = true;
-            smtpClient.Credentials = networkCred;
-            smtpClient.Port = 587; //port dla poczty wychodzącej
-            smtpClient.EnableSsl = false;
             try
             {
-                smtpClient.Send(mail);
+                var messageContent = "NAME: " + model.Name + " PHONE: " + model.Phone + " QUESTION: " + model.Content;
+                var mailTo = "info@arturstruzik.pl";
+                var mailSubject = model.Email + " ask you a question.";
+
+                SendEmailUsingBuildInCredentials(messageContent, mailTo, mailSubject);
             }
             catch (Exception)
             {
@@ -38,6 +29,18 @@ namespace BusinessSite.Controllers
             TempData["IsSuccess"] = "true";
             TempData["ViewBag.Message"] = "Wiadomość wysłana pomyślnie :)";
             return RedirectToAction("Index", "Home");
+        }
+
+        public static void SendEmailUsingBuildInCredentials(string messageContent, string mailTo, string mailSubject)
+        {
+            MailMessage mail = new MailMessage("info@arturstruzik.pl", mailTo, mailSubject, messageContent);
+            SmtpClient smtpClient = new SmtpClient("arturstruzik.nazwa.pl");
+            NetworkCredential networkCred = new NetworkCredential("info@arturstruzik.pl", "Amnezja18mx3");
+            smtpClient.UseDefaultCredentials = true;
+            smtpClient.Credentials = networkCred;
+            smtpClient.Port = 587;
+            smtpClient.EnableSsl = false;
+            smtpClient.Send(mail);
         }
     }
 }

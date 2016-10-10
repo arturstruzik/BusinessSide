@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BusinessSite.Models;
+using System.Web.Security;
 
 namespace BusinessSite.Controllers
 {
@@ -72,14 +73,24 @@ namespace BusinessSite.Controllers
             {
                 return View(model);
             }
+            var user = UserManager.FindByName(model.UserName);
+            if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+            {
+                TempData["IsSuccess"] = "false";
+                TempData["ViewBag.Message"] = "Nie znaleziono użytkownika lub nie aktywowano konta.";
+                return RedirectToAction("Index", "Home");
+            }
 
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    TempData["IsSuccess"] = "true";
-                    TempData["ViewBag.Message"] = "Zalogowano :)";
-                    return RedirectToLocal(returnUrl);
+                    {
+                        TempData["IsSuccess"] = "true";
+                        TempData["ViewBag.Message"] = "Zalogowano :)";
+                        return RedirectToLocal(returnUrl);
+                    }
+                    
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -156,13 +167,21 @@ namespace BusinessSite.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
                     // Send an email with this link
-                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    try
+                    {
+                        ContactMessageController.SendEmailUsingBuildInCredentials("Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>", model.Email, "Link aktywacyjny. Potwierdzenie rejestracji.");
+                    }
+                    catch
+                    {
+                        TempData["IsSuccess"] = "false";
+                        TempData["ViewBag.Message"] = "Coś poszło nie tak. Spróbuj ponownie lub skontaktuj się z administratorem strony. ;(";
+                        return View(model);
+                    }
+                    TempData["IsSuccess"] = "true";
+                    TempData["ViewBag.Message"] = "Wiadomość z linkiem aktywacyjnym wysłano na Twoją pocztę :)";
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -182,6 +201,16 @@ namespace BusinessSite.Controllers
                 return View("Error");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
+            if (result.Succeeded)
+            {
+                TempData["IsSuccess"] = "true";
+                TempData["ViewBag.Message"] = "Aktywowano konto :)";
+            }
+            else
+            {
+                TempData["IsSuccess"] = "false";
+                TempData["ViewBag.Message"] = "Błąd aktywacji konta ;(";
+            }
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
@@ -205,8 +234,10 @@ namespace BusinessSite.Controllers
                 var user = await UserManager.FindByEmailAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
+                    TempData["IsSuccess"] = "false";
+                    TempData["ViewBag.Message"] = "Nie odnaleziono użytkownika o wskazanym adresie mailowym ;(";
                     // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    return View(model);
                 }
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
