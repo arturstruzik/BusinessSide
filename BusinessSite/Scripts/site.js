@@ -1,5 +1,23 @@
 ﻿$(document).ready(function () {
 
+    if ($('footer').position().top < $(window).innerHeight()) {
+        $('footer').css("position", "absolute");
+        $('footer').css("top", $(window).innerHeight() - $('footer').outerHeight());
+    } else {
+        $('footer').css("position", "relative");
+        $('footer').css("top", "");
+    }
+
+    $(window).resize(function () {
+        if ($('footer').position().top < $(window).innerHeight()) {
+            $('footer').css("position", "absolute");
+            $('footer').css("top", $(window).innerHeight() - $('footer').outerHeight());
+        } else {
+            $('footer').css("position", "relative");
+            $('footer').css("top", "");
+        }
+    });
+
     $(document).scroll(function () {
 
         if ($(window).scrollTop() > 90) {
@@ -22,7 +40,7 @@
         $('.login-btn').css("width", '50px');
         $('.login-btn').css("margin-left", "15px");
         $('#login-form').css("line-height", "");
-        $('footer .about-author').css("height", "");
+        $('#contact .about-author').css("height", "");
     } else {
         $('#navbar-brand-image').attr('src', '/Assets/img/FN_LOGO_short.png');
         $('.navbar-brand').css('padding-left', '');
@@ -33,7 +51,7 @@
         $('.login-btn').css("width", '6vw');
         $('.login-btn').css("margin-left", "0");
         $('#login-form').css("line-height", "45px");
-        $('footer .about-author').css("height", "110px");
+        $('#contact .about-author').css("height", "110px");
     }
 
     if (window.innerWidth < 380) {
@@ -53,7 +71,7 @@
             $('.login-btn').css("width", '50px');
             $('.login-btn').css("margin-left", "15px");
             $('#login-form').css("line-height", "");
-            $('footer .about-author').css("height", "");
+            $('#contact .about-author').css("height", "");
         } else {
             $('#navbar-brand-image').attr('src', '/Assets/img/FN_LOGO_short.png');
             $('.navbar-brand').css('padding-left', '');
@@ -64,7 +82,7 @@
             $('.login-btn').css("width", '6vw');
             $('.login-btn').css("margin-left", "0");
             $('#login-form').css("line-height", "45px");
-            $('footer .about-author').css("height", "110px");
+            $('#contact .about-author').css("height", "110px");
         }
 
         if (window.innerWidth < 380) {

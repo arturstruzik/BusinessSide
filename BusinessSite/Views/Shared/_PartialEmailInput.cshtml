@@ -1,0 +1,14 @@
+﻿@model BusinessSite.Models.Email
+
+@using (Html.BeginForm("Send", "Email", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @id = "email-input", @placeholder="Twój email"} })
+    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <input type="submit" value="Wyślij" id="email-submit" />
+    </div>
+}

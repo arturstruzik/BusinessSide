@@ -2,30 +2,67 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="section section-1">
+    <div class="container">
+        <div class="section-header">
+            <h1>ZARABIAJ NA PLATFORMIE SPOŁECZNOŚCIOWEJ Z <span style="color:#a0faff">FUTURENET</span></h1>
+        </div>
+        <div class="raw">
+            <div class="cite-container" style="min-height:50vh">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="intro">
+                    <div class="col-lg-1 col-md-2 col-sm-2 col-xs-12" style="text-align:center">
+                        <span class="fa fa-bank fa-4x" style="color:#ffffff" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-lg-11 col-md-10 col-sm-10 col-xs-12">
+                        <p style="padding-left:10px; margin-bottom:40px;">Doświadczony lider z 10-cio letnim doświadczeniem w branży reklamowej i biznesu wykorzystującego narzędzia internetowe do promowania marki pokaże Ci jak stworzył imperium obywateli i liderów ktorzy dzięki jego narzędziom i wiedzy zarobili tysiące dolarów.</p>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center !important; padding-top:20px;">
+                        <a href="" id="register-link">ZAREJESTRUJ SIĘ JESZCZE DZIŚ</a>
+                    </div>
+                    <div style="text-align:right; width:100%">
+                        <a href="" style="text-decoration:none !important" class="calculator-box">
+                            <i class="fa fa-bar-chart fa-3x" aria-hidden="true"></i><span style="font-size:25px;">Odobierz kalkulator.</span><br />
+                            <span style="text-align:left !important">Sprawdź sam jak szybko się z nami zarabia.</span>
+                        </a>
+                        <div id="partial-email-input">
+                            @Html.Partial("_PartialEmailInput", new BusinessSite.Models.Email())
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="cite">
+                    <cite>"Nie pracujmy dla pieniedzy, niech one pracuja dla nas."</cite><br />
+                    <div style="text-align:right">
+                        <span>Robert T. Kiyosaki</span>
+                    </div>
+
+                </div>
+                <div class="col-lg-12 ol-md-12 col-sm-12 col-xs-12">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div class="row hide">
+    <div id="#contact">
+        <div class="container">
+            <div class="about-author">
+                <div id="aurhor-content">
+                    <img id="contact-author-img-1" src="~/Assets/img/michal.jpg" />
+                    <div class="about-author-name">
+                        ANDRZEJ NIWICKI
+                    </div>
+                    <div class="about-author-tags">
+                        <i class="fa fa-facebook" aria-hidden="true"></i> Porozmawiajmy na priv<br />
+                        <i class="fa fa-skype" aria-hidden="true"></i> michael<br />
+                        <i class="fa fa-envelope" aria-hidden="true"></i> kontakt@futureNet.net<br />
+                        <i class="fa fa-phone-square" aria-hidden="true"></i> +48 666 487 754
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_PartialPageContact", new BusinessSite.Models.ContactMessage())
+        </div>
     </div>
 </div>

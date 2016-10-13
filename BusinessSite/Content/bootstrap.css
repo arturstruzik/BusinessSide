@@ -70,11 +70,6 @@ a:hover {
   outline: 0;
 }
 
-h1 {
-  margin: 0.67em 0;
-  font-size: 2em;
-}
-
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -495,7 +490,6 @@ h6 small,
   color: #999999;
 }
 
-h1,
 h2,
 h3 {
   margin-top: 20px;

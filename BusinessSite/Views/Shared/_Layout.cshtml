@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <script src="https://use.fontawesome.com/dd8b72afbc.js"></script>
 </head>
 <body>
@@ -65,33 +66,10 @@
             @Html.Partial("_PartialAlert")
         </div>
     </div>
-    <div class="container">
         <div class="body-content">
             @RenderBody()
         </div>
-        <hr />
-    </div>
-
-    <footer class="row">
-        <div class="container">
-            <div class="about-author">
-                <div id="aurhor-content">
-                    <img id="footer-author-img-1" src="~/Assets/img/michal.jpg" />
-                    <div class="about-author-name">
-                        ANDRZEJ NIWICKI
-                    </div>
-                    <div class="about-author-tags">
-                        <i class="fa fa-facebook" aria-hidden="true"></i> Porozmawiajmy na priv<br />
-                        <i class="fa fa-skype" aria-hidden="true"></i> michael<br />
-                        <i class="fa fa-envelope" aria-hidden="true"></i> kontakt@futureNet.net<br />
-                        <i class="fa fa-phone-square" aria-hidden="true"></i> +48 666 487 754
-                    </div>
-                </div>
-            </div>
-            @Html.Partial("_PartialPageContact", new BusinessSite.Models.ContactMessage())
-        </div>
-    </footer>
-
+    <footer></footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/site.js")
