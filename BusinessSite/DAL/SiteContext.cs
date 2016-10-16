@@ -7,6 +7,7 @@ namespace BusinessSite.DAL
     public class SiteContext : DbContext
     {
         public DbSet<Email> Emails { get; set; }
+        public DbSet<CalcAccessDate> CalcAccessDatas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

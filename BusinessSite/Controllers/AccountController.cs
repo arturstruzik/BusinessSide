@@ -256,7 +256,7 @@ namespace BusinessSite.Controllers
                 }
                 TempData["IsSuccess"] = "true";
                 TempData["ViewBag.Message"] = "Wiadomość z linkiem resetującym wysłano na Twoją pocztę :)";
-                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                return RedirectToAction("Index", "Home");
             }
 
             // If we got this far, something failed, redisplay form

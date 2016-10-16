@@ -158,7 +158,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Assets\Crypto.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ContactMessageController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -171,8 +173,25 @@
     <Compile Include="Migrations\201610081924470_InitialCreate.Designer.cs">
       <DependentUpon>201610081924470_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610130925008_CalcAccess.cs" />
+    <Compile Include="Migrations\201610130925008_CalcAccess.Designer.cs">
+      <DependentUpon>201610130925008_CalcAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610130955016_CalcAccess2.cs" />
+    <Compile Include="Migrations\201610130955016_CalcAccess2.Designer.cs">
+      <DependentUpon>201610130955016_CalcAccess2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610131225011_update1.cs" />
+    <Compile Include="Migrations\201610131225011_update1.Designer.cs">
+      <DependentUpon>201610131225011_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610131318025_update2.cs" />
+    <Compile Include="Migrations\201610131318025_update2.Designer.cs">
+      <DependentUpon>201610131318025_update2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CalcAccessDate.cs" />
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -247,6 +266,7 @@
     <Content Include="Views\Shared\_PartialPageContact.cshtml" />
     <Content Include="Views\Shared\_PartialAlert.cshtml" />
     <Content Include="Views\Shared\_PartialEmailInput.cshtml" />
+    <Content Include="Views\Calculator\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -263,6 +283,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610081924470_InitialCreate.resx">
       <DependentUpon>201610081924470_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610130925008_CalcAccess.resx">
+      <DependentUpon>201610130925008_CalcAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610130955016_CalcAccess2.resx">
+      <DependentUpon>201610130955016_CalcAccess2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610131225011_update1.resx">
+      <DependentUpon>201610131225011_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610131318025_update2.resx">
+      <DependentUpon>201610131318025_update2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

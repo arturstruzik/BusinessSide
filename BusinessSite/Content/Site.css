@@ -3,6 +3,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    color:white;
 }
 
 .body-content {
@@ -23,6 +24,8 @@ a {
     display: block;
     padding-left: 15px;
     padding-right: 15px;
+    color: white;
+    margin-left:15px;
 }
 
 .site-top {
@@ -85,6 +88,16 @@ a {
 .fa-youtube {
     color: white;
     padding-right: 10px;
+}
+
+#loginLink{
+    background-color:rgba(255, 255, 255, 0.00) !important;
+    text-decoration: none;
+}
+
+#loginLink:hover{
+    background-color:rgba(255, 255, 255, 0.00) !important;
+    color:white;
 }
 
 .site-top .about-author {
@@ -199,11 +212,11 @@ a[class="register-btn"] {
 a[class="links-btn"] {
     color: #51ebf3;
     text-decoration: none;
-    background-color: white !important;
+    background-color: rgba(255, 255, 255, 0.00) !important;
 }
 
     a[class="links-btn"]:hover {
-        color: rgb(80, 182, 234) !important;
+        color: rgba(255, 255, 255, 1) !important;
     }
 
 .login-input {
@@ -219,24 +232,8 @@ a[class="links-btn"] {
     background: url(/Assets/img/input_background.png) no-repeat;
     background-size: cover;
     margin-right: 0.4em;
-    margin-top:7px;
+    margin-top: 7px;
 }
-
-/*.login-btn {
-    position: relative;
-    top: 2px;
-    height: 3.4vh;
-    line-height: 3.4vh;
-    width: 6vw;
-    color: white;
-    border: 0.1vh solid #51ebf3;
-    border-radius: 0.8vh;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 1.6vh;
-    background: url(/Assets/img/zaloguj.png) no-repeat;
-    background-size: cover;
-}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -290,18 +287,16 @@ textarea {
 
 input[type="submit"] {
     height: 20px;
-    width: 91%;
-    max-width: none;
+    max-width: 280px;
     color: white;
+    line-height: 10px !important;
     border: 0.1vh solid #51ebf3;
-    /*border-radius: 0.8vh;*/
     display: inline-block;
     font-weight: bold;
     font-size: 1.6vh;
     background: url(/Assets/img/zaloguj.png) no-repeat;
     background-size: cover;
     margin-top: 7px;
-    margin-left: 4px;
     line-height: 20px;
 }
 
@@ -409,6 +404,7 @@ input[type="submit"] {
 
         input[type="text"], input[type="password"], input[type="submit"].register-submit {
             width: 90%;
+
         }
 
     textarea {
@@ -466,113 +462,149 @@ input[type="submit"] {
     color: white;
 }
 
-    .section h1 {
-        font-weight: 600;
-        padding: 0 8px 0 8px;
-    }
+.section-2 {
+    min-height: 200px;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+}
 
-@media(max-width:325px){
+.section h1 {
+    font-weight: 600;
+    padding: 0 8px 0 8px;
+}
+
+@media(max-width:325px) {
     .section h1 {
         font-weight: 500;
         font-size: 25px;
     }
 }
-    .section cite{
-        color:white;
-        font-family: 'Tangerine', cursive;
-        font-weight:500;
-        font-size:40px;
-    }
-    .section #cite{
-        margin-top:10vh;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    .section .cite-container{
-        text-align: center;
-        padding-left:10px;
-        padding-right:10px;
-    }
-    .section #intro{
-        text-align: left;
-        margin-top:5vh;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    .section #register-link{
-        text-decoration:none !important;
-        font-size:25px;
-        border: 2vh solid #51ebf3;
-        /*border-radius: 1.6vh;*/
-        background: url(/Assets/img/zaloguj.png) no-repeat;
-        background-size: cover;
-        opacity:0.9;
-        color:white;
-        padding: 15px 25px 15px 25px;
+
+.section cite {
+    color: white;
+    font-family: 'Tangerine', cursive;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.section #cite {
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section .cite-container {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.section #intro {
+    text-align: left;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section #register-link {
+    text-decoration: none !important;
+    font-size: 25px;
+    border: 2vh solid #51ebf3;
+    /*border-radius: 1.6vh;*/
+    background: url(/Assets/img/zaloguj.png) no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+    color: white;
+    padding: 15px 25px 15px 25px;
+    -webkit-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+}
+
+    .section #register-link:hover, .section .calculator-box:hover {
+        opacity: 1;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5) !important;
     }
 
-    .section #register-link:hover, .section .calculator-box:hover{
-        opacity:1;
-        color:white;
-        background-color:#192dbd !important;
-    }
+.section .calculator-box {
+    position: relative;
+    float: right;
+    display: block;
+    clear: both;
+    opacity: 0.9;
+    border: 2vh solid white;
+    padding: 8px 15px 8px 15px;
+    background-color: rgba(0, 0, 0, 0.32);
+    background-size: cover;
+    max-width: 380px;
+    text-align: center;
+    color: white;
+    -webkit-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+}
 
-    .section .calculator-box{
-        position:relative;
-        float:right;
-        display:block;
-        clear:both;
-        opacity:0.9;
-        border: 2vh solid #51ebf3;
-        padding: 8px 15px 8px 15px;
-        background-color:#192dbd;
-        background-size: cover;
-        max-width:380px;
-        text-align:center;
-        color:white;
-    }
-    .section #email-submit{
-        margin: 0 0 0 0 !important;
-        position:relative;
-        top: -15px;
-        max-width:35%;
-        height:30px;
-    }
+.section #email-submit {
+    margin: 0 0 0 0 !important;
+    position: relative;
+    max-width: 35%;
+    height: 30px;
+    width:90%;
+    -webkit-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+}
 
-    .fa-bar-chart:hover{
-        color:white !important;
-    }
+.fa-bar-chart:hover {
+    color: white !important;
+}
 
-    #email-input{
-        clear:both !important;
-        border: 1vh solid #51ebf3 !important;
-        border-radius: 0 !important;
-        min-width:80% !important;
-        float:left;
-        height:40px;
-        opacity:0.8;
-    }
+#email-input {
+    clear: both !important;
+    border: 1vh solid #51ebf3 !important;
+    border-radius: 0 !important;
+    min-width: 80% !important;
+    float: left;
+    height: 40px;
+    opacity: 0.8;
+    -webkit-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+}
 
-    #partial-email-input{
-        clear:both; 
-        position:relative; 
-        width:100%;
-        top:-18px;
-    }
+#partial-email-input {
+    clear: both;
+    position: relative;
+    width: 100%;
+    top: -18px;
+}
 
-    @media(max-width:767px){
-        .section #cite {
-            clear: both;
-        }
-    }
 
-    @media(max-width:991px){
+
+@media(max-width:767px) {
+    .section #cite {
+        clear: both;
+    }
+}
+
+@media(max-width:991px) {
     .section #register-link, .calculator-box span, .fa-bar-chart {
         font-size: 18px !important;
     }
 }
 
-.section-header {
-    text-align:center;
+@media(max-width:464px) {
+    .section #register-link {
+        font-size: 14px !important;
+        padding-left: 5px;
+        padding-right: 5px;
+        border: 1vh solid;
+    }
 }
 
+.section-header {
+    text-align: center;
+}
